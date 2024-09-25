@@ -34,6 +34,7 @@ describe('Check winning Condtions', () => {
     player1 = new Player('Maicol');
     player2 = new Player('Rigo');
     game = new GameManager(player1, player2, board);
+    game.setMarkers();
   });
 
   it('check winning conditions horizontally', () => {
@@ -54,5 +55,35 @@ describe('Check winning Condtions', () => {
     expect(itwon).toBe(true);
   });
 
-  todo('check winning conndtions diagonally');
+  it('check winning conndtions diagonally', () => {
+    for (let i = 0; i < 9; i += 4) {
+      game.gameBoard.cell[i] = 'X';
+    }
+
+    expect(game.gameBoard.cell[4] === game.currentPlayer.marker).toBe(true);
+    let itwon = game.checkWin();
+  });
+});
+
+describe('Moves functionality', () => {
+  let board;
+  let player1;
+  let player2;
+  let game;
+
+  beforeEach(() => {
+    board = new Board();
+    player1 = new Player('Maicol');
+    player2 = new Player('Rigo');
+    game = new GameManager(player1, player2, board);
+    game.setMarkers();
+  });
+  it('switch player after each play if the play is valid', () => {
+    expect(game.currentPlayer.marker).toBe('X');
+    game.play(1);
+
+    expect(game.currentPlayer.marker).toBe('O');
+    expect(game.play(1)).toBe(false);
+    expect(game.gameBoard.cell[1]).toBe('X');
+  });
 });

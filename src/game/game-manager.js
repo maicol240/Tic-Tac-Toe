@@ -12,7 +12,7 @@ export class GameManager {
     this.gameBoard = board;
   }
 
-  //Add  set Market to players
+  //Add   Markers to players
   setMarkers() {
     this.player1.marker = 'X';
     this.player2.marker = 'O';
@@ -23,8 +23,8 @@ export class GameManager {
     //check if the current player owns the center to check diagonally
     if (this.currentPlayer.marker === this.gameBoard.cell[4]) {
       if (
-        this.gameBoard.cell[0] === this.gameBoard[8] ||
-        this.gameBoard[6] === this.gameBoard[2]
+        this.gameBoard.cell[0] === this.gameBoard.cell[8] ||
+        this.gameBoard.cell[6] === this.gameBoard.cell[2]
       ) {
         return true;
       }
@@ -56,5 +56,39 @@ export class GameManager {
       }
     }
     return false;
+  }
+
+  play(index) {
+    const isvalid = this.gameBoard.setMark(this.currentPlayer.marker, index);
+    const gameOver = this.checkWin();
+
+    if (gameOver) {
+      //giving winning point to winner
+      this.currentPlayer.score.w += 1;
+
+      //giving loss to the losing player
+      const givingLoss =
+        this.currentPlayer === this.player1 ? this.player2 : this.player1;
+      givingLoss.score.l += 1;
+
+      //display message
+      return `${this.currentPlayer.name} Won`;
+    }
+
+    ///if the play is valid is going to switch players // if turn is equal to 10 will become a draw
+    else if (isvalid) {
+      this.currentPlayer =
+        this.currentPlayer === this.player1 ? this.player2 : this.player1;
+      //increase turn value
+      this.#turn++;
+
+      if (this.#turn === 10) {
+        this.player1.score.d += 1;
+        this.player2.score.d += 1;
+        return `Draw`;
+      }
+
+      return true;
+    } else return false;
   }
 }
