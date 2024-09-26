@@ -30,6 +30,7 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "core-js": "^3.38.1"
+    "core-js": "^3.38.1",
+    "normalize.css": "^8.0.1"
   }
 }

@@ -1,1 +1,20 @@
-@import "~normalize.css";
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import './styles/form.css';
+
+* {
+  outline: 2px solid red;
+}
+
+header {
+  height: 60px;
+  display: flex;
+  background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%);
+  justify-content: space-around;
+  padding: 10px;
+  font-size: 2rem;
+  font-family: 'Oswald', sans-serif;
+  font-optical-sizing: auto;
+  align-items: center;
+  font-weight: bolder;
+}

@@ -7,7 +7,7 @@ export class GameManager {
   constructor(player1, player2, board) {
     this.player1 = player1;
     this.player2 = player2;
-    this.currentPlayer = player1;
+    this.currentPlayer = this.player1;
     this.#turn = 1;
     this.gameBoard = board;
   }
@@ -90,5 +90,11 @@ export class GameManager {
 
       return true;
     } else return false;
+  }
+
+  startNewGame() {
+    this.gameBoard.board.clearBoard();
+    this.currentPlayer = this.player1;
+    this.#turn = 1;
   }
 }
