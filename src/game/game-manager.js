@@ -12,19 +12,15 @@ export class GameManager {
     this.gameBoard = board;
   }
 
-  //Add   Markers to players
-  setMarkers() {
-    this.player1.marker = 'X';
-    this.player2.marker = 'O';
-  }
-
   //check if player Won
   checkWin() {
     //check if the current player owns the center to check diagonally
     if (this.currentPlayer.marker === this.gameBoard.cell[4]) {
       if (
-        this.gameBoard.cell[0] === this.gameBoard.cell[8] ||
-        this.gameBoard.cell[6] === this.gameBoard.cell[2]
+        (this.gameBoard.cell[0] === this.gameBoard.cell[8] &&
+          this.gameBoard.cell[4] === this.gameBoard.cell[0]) ||
+        (this.gameBoard.cell[6] === this.gameBoard.cell[2] &&
+          this.gameBoard.cell[6] === this.gameBoard.cell[4])
       ) {
         return true;
       }
@@ -60,17 +56,10 @@ export class GameManager {
 
   play(index) {
     const isvalid = this.gameBoard.setMark(this.currentPlayer.marker, index);
+
     const gameOver = this.checkWin();
 
     if (gameOver) {
-      //giving winning point to winner
-      this.currentPlayer.score.w += 1;
-
-      //giving loss to the losing player
-      const givingLoss =
-        this.currentPlayer === this.player1 ? this.player2 : this.player1;
-      givingLoss.score.l += 1;
-
       //display message
       return `${this.currentPlayer.name} Won`;
     }
@@ -83,8 +72,6 @@ export class GameManager {
       this.#turn++;
 
       if (this.#turn === 10) {
-        this.player1.score.d += 1;
-        this.player2.score.d += 1;
         return `Draw`;
       }
 
@@ -93,7 +80,7 @@ export class GameManager {
   }
 
   startNewGame() {
-    this.gameBoard.board.clearBoard();
+    this.gameBoard.clearBoard();
     this.currentPlayer = this.player1;
     this.#turn = 1;
   }

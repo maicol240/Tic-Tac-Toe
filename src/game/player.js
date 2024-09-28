@@ -1,11 +1,6 @@
 export class Player {
-  constructor(name) {
+  constructor(name, marker) {
     this.name = name;
-    this.marker = '';
-    this.score = {
-      w: 0,
-      l: 0,
-      d: 0,
-    };
+    this.marker = marker;
   }
 }

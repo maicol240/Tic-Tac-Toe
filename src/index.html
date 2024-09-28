@@ -7,22 +7,26 @@
   </head>
   <body>
     <header>
-      <div class="player-x">Maicol</div>
-      <div class="player-o">Juan</div>
+      <div class="player-x">Player-X</div>
+      <div class="player-o">Player-O</div>
     </header>
-    <form id="game-form">
-      <fieldset>
-        <legend>Players</legend>
-        <div>
-          <label for="player-x">player-x: </label>
-          <input type="text" id="player-x" name="player-x" value="player1" />
+    <main>
+      <form id="game-form">
+        <div class="fieldset-container">
+          <fieldset>
+            <div class="title">Players</div>
+            <div>
+              <label for="player-x">Player-X: </label>
+              <input type="text" id="player-x" name="player-x" />
+            </div>
+            <div>
+              <label for="player-o">Player-O: </label>
+              <input type="text" id="player-o" name="player-o" />
+            </div>
+            <button type="submit">Start</button>
+          </fieldset>
         </div>
-        <div>
-          <label for="player-x">player-x: </label>
-          <input type="text" id="player-x" name="player-x" value="player1" />
-        </div>
-        <button type="submit">Start</button>
-      </fieldset>
-    </form>
+      </form>
+    </main>
   </body>
 </html>

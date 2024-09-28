@@ -1,15 +1,18 @@
-#game-form {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  height: 50vh;
-  align-items: center;
+.title {
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid black;
 }
 
-legend {
-  text-align: center;
-}
 fieldset {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  font-size: 1.5rem;
+  max-width: 440px;
+}
+
+fieldset ~ div {
+  display: flex;
 }

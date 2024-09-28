@@ -10,14 +10,12 @@ describe('Game flow tests', () => {
 
   beforeEach(() => {
     board = new Board();
-    player1 = new Player('Maicol');
-    player2 = new Player('Rigo');
+    player1 = new Player('Maicol', 'X');
+    player2 = new Player('Rigo', 'O');
     game = new GameManager(player1, player2, board);
   });
 
   it('should set markers for both players', () => {
-    game.setMarkers();
-
     expect(game.player1.marker).toBe('X');
     expect(game.player2.marker).toBe('O');
   });
@@ -31,10 +29,9 @@ describe('Check winning Condtions', () => {
 
   beforeEach(() => {
     board = new Board();
-    player1 = new Player('Maicol');
-    player2 = new Player('Rigo');
+    player1 = new Player('Maicol', 'X');
+    player2 = new Player('Rigo', 'O');
     game = new GameManager(player1, player2, board);
-    game.setMarkers();
   });
 
   it('check winning conditions horizontally', () => {
@@ -73,10 +70,9 @@ describe('Moves functionality', () => {
 
   beforeEach(() => {
     board = new Board();
-    player1 = new Player('Maicol');
-    player2 = new Player('Rigo');
+    player1 = new Player('Maicol', 'X');
+    player2 = new Player('Rigo', 'O');
     game = new GameManager(player1, player2, board);
-    game.setMarkers();
   });
   it('switch player after each play if the play is valid', () => {
     expect(game.currentPlayer.marker).toBe('X');

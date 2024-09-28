@@ -1,12 +1,29 @@
 @import '~normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import './styles/form.css';
-
+@import './styles/board.css';
 * {
-  outline: 2px solid red;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 20px;
 }
 
 header {
+  width: 100vw;
   height: 60px;
   display: flex;
   background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%);
