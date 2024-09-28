@@ -1,18 +1,23 @@
-.title {
-  text-align: center;
-  padding: 5px;
-  border-bottom: 1px solid black;
+img {
+  max-width: 60px;
 }
 
 fieldset {
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: white;
-  font-size: 1.5rem;
-  max-width: 440px;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
-fieldset ~ div {
+.title {
   display: flex;
+  justify-content: space-around;
+  align-items: end;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+input {
+  flex-shrink: 1;
 }
