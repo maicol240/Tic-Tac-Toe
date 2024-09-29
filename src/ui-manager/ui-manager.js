@@ -24,11 +24,12 @@ function createUI(board) {
 
 //render new game
 function restartGame(buttons, gameManager) {
+  //this will clear UI 
   buttons.forEach((button) => {
     button.disabled = false;
     button.textContent = '';
 
-    // Set the disabled property to true
+    
   });
 
   gameManager.startNewGame();
