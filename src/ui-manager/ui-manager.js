@@ -30,12 +30,17 @@ function createUI(board, player) {
 }
 
 //render new game
+<<<<<<< HEAD
 function restartGame(buttons, gameManager, gameStatus) {
+=======
+function restartGame(buttons, gameManager) {
+  //this will clear UI 
+>>>>>>> 2b335b8236dcf1cb7170f653a0e9c63f813a9268
   buttons.forEach((button) => {
     button.disabled = false;
     button.textContent = '';
 
-    // Set the disabled property to true
+    
   });
   gameManager.startNewGame();
   gameStatus.textContent = gameManager.currentPlayer.name + "'s Turn";
